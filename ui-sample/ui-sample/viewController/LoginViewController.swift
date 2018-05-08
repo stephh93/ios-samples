@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.performSegue(withIdentifier: "login", sender: self)
         self.hideKeyboardOnTapOutside()
     }
 

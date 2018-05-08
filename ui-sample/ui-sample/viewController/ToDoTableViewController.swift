@@ -11,7 +11,6 @@ import UIKit
 class ToDoTableViewController: UITableViewController  {
     
     var name : String!
-    var items = [Todo]()
     var database = Database<Todo>()
     
     override func viewDidLoad() {
@@ -60,7 +59,7 @@ class ToDoTableViewController: UITableViewController  {
     
     //TableviewDelegate set row count
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return items.count
+        return self.database.table.count
     }
     
     //TableviewDelegate set cell
@@ -68,7 +67,7 @@ class ToDoTableViewController: UITableViewController  {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath) as? TodoTableViewCell  else {
             fatalError("The dequeued cell is not an instance of TodoTableViewCell.")
         }
-        cell.todoName.text = items[indexPath.row].name
+        cell.todoName.text = self.database.table[indexPath.row].name
         cell.deleteButton.tag = indexPath.row
         cell.deleteButton.addTarget(self, action: #selector(deleteIndex), for: .touchUpInside)
         return cell
@@ -112,20 +111,16 @@ class ToDoTableViewController: UITableViewController  {
     }
     
     @objc func addItem(_ notfication: NSNotification){
-        if let todo = notfication.object as? Todo {
-            self.items.append(todo)
             self.tableView.beginUpdates()
-            self.tableView.insertRows(at: [IndexPath(row: items.count-1, section: 0)], with: .automatic)
+            self.tableView.insertRows(at: [IndexPath(row: database.table.count-1, section: 0)], with: .automatic)
             self.tableView.endUpdates()
-        }
+        
     }
     
     @objc func deleteItem(_ notfication: NSNotification){
         if let index = notfication.object as? Int {
-            self.items.remove(at: index)
             self.tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
         }
     }
-    
    
 }

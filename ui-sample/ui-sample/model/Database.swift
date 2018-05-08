@@ -18,8 +18,9 @@ class Database<T> {
     }
     
     func delete(at index: Int){
-        table.remove(at: index)
-        NotificationCenter.default.post(name: .delete, object: index)
-    }
-   
+        if table.count > index {
+            table.remove(at: index)
+            NotificationCenter.default.post(name: .delete, object: index)
+        }
+    }   
 }
