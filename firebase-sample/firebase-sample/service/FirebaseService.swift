@@ -25,6 +25,7 @@ class FirebaseService: NSObject {
         registerAuthListener()
         dataRef = Database.database().reference().child("data")
         userRef = Database.database().reference().child("user")
+       
     }
     
     func userId () -> String? {
@@ -47,6 +48,7 @@ class FirebaseService: NSObject {
             if fireUser != nil {
                 NotificationCenter.default.post(name: .login, object: fireUser)
                 self.fetchUser(fireUser)
+                self.dataRef.child(fireUser!.uid).keepSynced(true)
             } else {
                 NotificationCenter.default.post(name: .logout, object: fireUser)
                 self.user = nil
@@ -75,6 +77,7 @@ class FirebaseService: NSObject {
     }
     
     func logout(){
+        self.dataRef.child(self.userId()!).keepSynced(false)
         try? Auth.auth().signOut()
     }
     
