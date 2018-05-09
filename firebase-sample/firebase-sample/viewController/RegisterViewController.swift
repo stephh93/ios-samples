@@ -14,7 +14,6 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var pwValText: UITextField!
     @IBOutlet weak var pwText: UITextField!
     @IBOutlet weak var emailText: UITextField!
-    let firbaseService = FirebaseService.shared
     
     var spinner : UIView?
     
@@ -51,7 +50,8 @@ class RegisterViewController: UIViewController {
                 case .emailAlreadyInUse: emailText.error(shakeCount: 4); break;
                 case .weakPassword: pwText.error(shakeCount: 4); break;
                 default:
-                    print("Create User Error: \(error)")
+                    emailText.error(shakeCount: 4)
+                    pwText.error(shakeCount: 4)
                 }
             }
         }
@@ -73,7 +73,7 @@ class RegisterViewController: UIViewController {
             }else if nick.isEmpty {
                 nickText.error(shakeCount: 4)
             }else {
-                self.firbaseService.tryRegister(with: email, and: pw, nickname: nick)
+                FirebaseService.shared.tryRegister(with: email, and: pw, nickname: nick)
                 self.spinner = self.displaySpinner(onView: self.view)
             }
         }

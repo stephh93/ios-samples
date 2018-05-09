@@ -33,6 +33,7 @@ class ToDoTableViewController: UITableViewController, DatabaseObserverDelegate {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
         kvObserver?.invalidate()
+        self.firbaseService.removeTableListener()
     }
     
     func registerObservers(){
@@ -100,7 +101,6 @@ class ToDoTableViewController: UITableViewController, DatabaseObserverDelegate {
     }
     
     @objc func tryLogout(){
-        self.firbaseService.removeTableListener()
         firbaseService.logout()
     }
     

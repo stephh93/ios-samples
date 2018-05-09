@@ -78,6 +78,7 @@ class FirebaseService: NSObject {
     
     func logout(){
         self.dataRef.child(self.userId()!).keepSynced(false)
+        self.removeTableListener()
         try? Auth.auth().signOut()
     }
     

@@ -16,7 +16,6 @@ class LoginViewController: UIViewController {
     
     var spinner : UIView?
     
-    let firebaseService = FirebaseService.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +54,8 @@ class LoginViewController: UIViewController {
                 case .invalidRecipientEmail: emailText.error(shakeCount: 4); break;
                 case .wrongPassword: pwText.error(shakeCount: 4); break;
                 default:
-                    print("Create User Error: \(error)")
+                    emailText.error(shakeCount: 4)
+                    pwText.error(shakeCount: 4)
                 }
             }
         }
@@ -72,7 +72,7 @@ class LoginViewController: UIViewController {
             }else if pw.isEmpty {
                 pwText.error(shakeCount: 4)
             }else {
-                self.firebaseService.tryLogin(with: email, and: pw)
+                FirebaseService.shared.tryLogin(with: email, and: pw)
                 self.spinner = self.displaySpinner(onView: self.view)
             }
         }
