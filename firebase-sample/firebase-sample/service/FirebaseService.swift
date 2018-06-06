@@ -57,12 +57,12 @@ class FirebaseService: NSObject {
     }
     
     func tryRegister(with email: String, and password: String, nickname: String){
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            if error != nil || user == nil {
+        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+            if error != nil || result == nil {
                 NotificationCenter.default.post(name: .authError, object: error)
             } else{
                 //create custom user
-                let uid = user!.uid
+                let uid = result!.user.uid
                 self.userRef.child(uid).setValue(CostumUser(name: nickname, id: uid).dictionary!)
             }
         }
