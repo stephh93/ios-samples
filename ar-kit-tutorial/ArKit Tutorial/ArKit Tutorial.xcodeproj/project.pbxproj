@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D42548202168DFE900BD8348 /* SKOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D425481F2168DFE900BD8348 /* SKOverlay.swift */; };
+		D4A1D8FC21A1B0B600C97F59 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A1D8FB21A1B0B600C97F59 /* spark.png */; };
 		D4B5DA1A2119A194000E427A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5DA192119A194000E427A /* AppDelegate.swift */; };
 		D4B5DA1C2119A194000E427A /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D4B5DA1B2119A194000E427A /* art.scnassets */; };
 		D4B5DA1E2119A194000E427A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5DA1D2119A194000E427A /* ViewController.swift */; };
@@ -15,10 +16,12 @@
 		D4B5DA232119A195000E427A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4B5DA222119A195000E427A /* Assets.xcassets */; };
 		D4B5DA262119A195000E427A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B5DA242119A195000E427A /* LaunchScreen.storyboard */; };
 		D4B5DA302119EA1E000E427A /* SCNVector3Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5DA2F2119EA1E000E427A /* SCNVector3Extension.swift */; };
+		D4DA56B2219C7A2400EDC63B /* fire.scnp in Resources */ = {isa = PBXBuildFile; fileRef = D4DA56B0219C7A2400EDC63B /* fire.scnp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D425481F2168DFE900BD8348 /* SKOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKOverlay.swift; sourceTree = "<group>"; };
+		D4A1D8FB21A1B0B600C97F59 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		D4B5DA162119A194000E427A /* ArKit Tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ArKit Tutorial.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B5DA192119A194000E427A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4B5DA1B2119A194000E427A /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -28,6 +31,7 @@
 		D4B5DA252119A195000E427A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4B5DA272119A195000E427A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4B5DA2F2119EA1E000E427A /* SCNVector3Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3Extension.swift; sourceTree = "<group>"; };
+		D4DA56B0219C7A2400EDC63B /* fire.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = fire.scnp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 		D4B5DA182119A194000E427A /* ArKit Tutorial */ = {
 			isa = PBXGroup;
 			children = (
+				D4DA56A6219C78CE00EDC63B /* ParticleSystems */,
 				D4B5DA192119A194000E427A /* AppDelegate.swift */,
 				D4B5DA1B2119A194000E427A /* art.scnassets */,
 				D4B5DA1D2119A194000E427A /* ViewController.swift */,
@@ -71,6 +76,15 @@
 				D425481F2168DFE900BD8348 /* SKOverlay.swift */,
 			);
 			path = "ArKit Tutorial";
+			sourceTree = "<group>";
+		};
+		D4DA56A6219C78CE00EDC63B /* ParticleSystems */ = {
+			isa = PBXGroup;
+			children = (
+				D4A1D8FB21A1B0B600C97F59 /* spark.png */,
+				D4DA56B0219C7A2400EDC63B /* fire.scnp */,
+			);
+			path = ParticleSystems;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,7 +146,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4B5DA1C2119A194000E427A /* art.scnassets in Resources */,
+				D4A1D8FC21A1B0B600C97F59 /* spark.png in Resources */,
 				D4B5DA262119A195000E427A /* LaunchScreen.storyboard in Resources */,
+				D4DA56B2219C7A2400EDC63B /* fire.scnp in Resources */,
 				D4B5DA232119A195000E427A /* Assets.xcassets in Resources */,
 				D4B5DA212119A194000E427A /* Main.storyboard in Resources */,
 			);
