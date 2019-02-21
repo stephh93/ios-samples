@@ -85,7 +85,7 @@ class FirebaseService: NSObject {
     func add(todo: String, for user: String) {
         let childRef = dataRef.child(user).childByAutoId()
         let key = childRef.key
-        let todo = Todo(name: todo, uid: user, id: key)
+        let todo = Todo(name: todo, uid: user, id: key!)
         if let data = todo.dictionary {
             childRef.setValue(data)
         }
